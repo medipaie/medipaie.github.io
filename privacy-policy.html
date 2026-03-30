@@ -1,25 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politique de confidentialité – MediPaie</title>
+  <style>
+    :root {
+      --blue:#0A5FD6; --blue-light:#EEF4FD; --blue-mid:#C8DEFA;
+      --green:#0D9E6E; --text:#1C1C1E; --muted:#6B7280;
+      --border:#E5E7EB; --bg:#F8FAFC; --white:#FFFFFF;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px}
+
+    header{background:linear-gradient(135deg,#0A5FD6 0%,#0847A8 100%);color:white;padding:56px 24px 48px;text-align:center;position:relative;overflow:hidden}
+    header::before{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;background:rgba(255,255,255,0.06);border-radius:50%}
+    .logo-wrap{display:inline-flex;align-items:center;gap:14px;margin-bottom:20px}
+    .logo-icon{width:52px;height:52px;background:rgba(255,255,255,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px}
+    .logo-name{font-size:2rem;font-weight:800;letter-spacing:-0.5px}
+    header h1{font-size:1.05rem;font-weight:400;opacity:0.85}
+    .update-badge{display:inline-block;margin-top:20px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:4px 16px;font-size:0.8rem}
+
+    .container{max-width:780px;margin:0 auto;padding:48px 24px 80px}
+
+    .summary-card{background:var(--blue-light);border:1px solid var(--blue-mid);border-radius:16px;padding:28px 32px;margin-bottom:40px}
+    .summary-card h2{font-size:.85rem;font-weight:700;color:var(--blue);margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px}
+    .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+    .summary-item{display:flex;align-items:flex-start;gap:10px}
+    .summary-item .icon{font-size:1.3rem;flex-shrink:0}
+    .summary-item .label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;font-weight:600;display:block;margin-bottom:2px}
+    .summary-item .value{font-size:.9rem;font-weight:600;color:var(--text)}
+
+    .controller-card{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:12px;padding:24px 28px;margin-bottom:32px;display:flex;align-items:flex-start;gap:20px}
+    .controller-avatar{width:48px;height:48px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem;flex-shrink:0}
+    .controller-card h3{font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:600;margin-bottom:6px}
+    .controller-card .name{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+    .controller-card .detail{font-size:.88rem;color:var(--muted);margin-bottom:2px}
+    .controller-card a{color:var(--blue);text-decoration:none;font-weight:500}
+
+    .section{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:20px}
+    .section-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    .section-num{width:32px;height:32px;background:var(--blue);color:white;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+    .section-header h2{font-size:1.05rem;font-weight:700}
+    p{margin-bottom:14px;font-size:.96rem;color:#374151}
+    p:last-child{margin-bottom:0}
+
+    .data-table{width:100%;border-collapse:collapse;font-size:.88rem;margin:16px 0}
+    .data-table th{background:var(--bg);color:var(--muted);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.4px;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
+    .data-table td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top;color:#374151}
+    .data-table tr:last-child td{border-bottom:none}
+    .tag{display:inline-block;background:var(--blue-light);color:var(--blue);font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:6px}
+    .tag.green{background:#ECFDF5;color:var(--green)}
+
+    .rights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:16px}
+    .right-item{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px}
+    .right-item .ri{font-size:1.3rem;margin-bottom:8px}
+    .right-item h4{font-size:.88rem;font-weight:700;margin-bottom:4px}
+    .right-item p{font-size:.82rem;color:var(--muted);margin:0}
+
+    .provider-list{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+    .provider-item{display:flex;align-items:flex-start;gap:16px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+    .provider-logo{font-size:1.4rem;width:36px;text-align:center;flex-shrink:0;margin-top:2px}
+    .provider-item h4{font-size:.9rem;font-weight:700;margin-bottom:3px}
+    .provider-item p{font-size:.83rem;color:var(--muted);margin:0}
+    .provider-item a{color:var(--blue);font-size:.83rem}
+
+    .alert-box{background:#FFFBEB;border:1px solid #FCD34D;border-radius:10px;padding:14px 18px;font-size:.87rem;color:#92400E;margin-top:14px}
+
+    footer{background:var(--white);border-top:1px solid var(--border);padding:32px 24px;text-align:center}
+    .footer-inner{max-width:780px;margin:0 auto}
+    .footer-logo{font-size:1.1rem;font-weight:800;color:var(--blue);margin-bottom:8px}
+    footer p{font-size:.83rem;color:var(--muted);margin:0}
+    footer a{color:var(--blue);text-decoration:none}
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    @media(max-width:600px){
+      .container{padding:28px 14px 60px}
+      .section{padding:20px 16px}
+      .controller-card{flex-direction:column;gap:10px}
+      .summary-grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
 </head>
 <body>
-    <h1>Privacy Policy</h1>
-    <p>Date: 2026-03-30</p>
-    <p>Your privacy is important to us. This privacy policy explains how we collect, use, disclose, and safeguard your information.</p>
-    <h2>Information We Collect</h2>
-    <p>We may collect personal information that you provide directly to us.</p>
-    <h2>Use of Information</h2>
-    <p>We use the information we collect to provide and improve our services.</p>
-    <h2>Disclosure of Information</h2>
-    <p>We may share your information in the following circumstances...</p>
-    <h2>Security of Information</h2>
-    <p>We take the security of your information seriously...</p>
-    <h2>Changes to this Privacy Policy</h2>
-    <p>We may update our privacy policy from time to time...</p>
-    <h2>Contact Us</h2>
-    <p>If you have any questions about this privacy policy, please contact us.</p>
+
+<header>
+  <div class="logo-wrap">
+    <div class="logo-icon">🏥</div>
+    <span class="logo-name">MediPaie</span>
+  </div>
+  <h1>Politique de confidentialité &amp; Protection des données personnelles</h1>
+  <div class="update-badge">Dernière mise à jour : 01 avril 2026 &nbsp;·&nbsp; Version 1.0</div>
+</header>
+
+<div class="container">
+
+  <!-- RÉSUMÉ -->
+  <div class="summary-card">
+    <h2>⚡ En bref</h2>
+    <div class="summary-grid">
+      <div class="summary-item"><span class="icon">🔒</span><div><span class="label">Données vendues</span><span class="value">Jamais</span></div></div>
+      <div class="summary-item"><span class="icon">🇪🇺</span><div><span class="label">Hébergement</span><span class="value">Union Européenne</span></div></div>
+      <div class="summary-item"><span class="icon">📱</span><div><span class="label">Stockage local</span><span class="value">Sur votre appareil</span></div></div>
+      <div class="summary-item"><span class="icon">🗑️</span><div><span class="label">Suppression</span><span class="value">Sur demande, 30 j.</span></div></div>
+    </div>
+  </div>
+
+  <!-- RESPONSABLE -->
+  <div class="controller-card">
+    <div class="controller-avatar">👤</div>
+    <div>
+      <h3>Responsable du traitement — RGPD Art. 13</h3>
+      <div class="name">Martin PLANCKEEL</div>
+      <div class="detail">Auto-entrepreneur · Éditeur de l'application MediPaie</div>
+      <div class="detail">SIRET : <strong>98298673900018</strong> &nbsp;·&nbsp; France</div>
+      <div class="detail">📧 <a href="mailto:contact.medipaie@gmail.com">contact.medipaie@gmail.com</a></div>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">1</div><h2>Objet et champ d'application</h2></div>
+    <p>La présente politique décrit les pratiques de collecte, d'utilisation, de conservation et de protection des données personnelles de l'application mobile <strong>MediPaie</strong>, éditée par Martin PLANCKEEL, auto-entrepreneur de droit français.</p>
+    <p>MediPaie est destinée aux professionnels de santé (infirmiers, aides-soignants, médecins, sages-femmes, kinésithérapeutes…) pour le suivi de leur temps de travail, le calcul de leur rémunération et la gestion de leurs bulletins de salaire.</p>
+    <p>Cette politique est conforme au <strong>Règlement Général sur la Protection des Données (RGPD — UE 2016/679)</strong>, à la loi française Informatique et Libertés n° 78-17 modifiée, et aux exigences des App Store Review Guidelines d'Apple.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">2</div><h2>Données personnelles collectées</h2></div>
+    <p>MediPaie collecte uniquement les données strictement nécessaires à son fonctionnement <em>(principe de minimisation, RGPD Art. 5-1-c)</em> :</p>
+    <table class="data-table">
+      <thead><tr><th>Catégorie</th><th>Données</th><th>Finalité</th><th>Base légale</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Compte</strong></td><td>Email, prénom, profession</td><td>Authentification et personnalisation</td><td><span class="tag">Exécution du contrat</span></td></tr>
+        <tr><td><strong>Temps de travail</strong></td><td>Dates, horaires, types de gardes</td><td>Calcul de la rémunération</td><td><span class="tag">Exécution du contrat</span></td></tr>
+        <tr><td><strong>Salaire</strong></td><td>Montants de bulletins, primes</td><td>Récapitulatifs mensuels</td><td><span class="tag">Exécution du contrat</span></td></tr>
+        <tr><td><strong>Technique</strong></td><td>Token de session (JWT)</td><td>Sécurité et persistance</td><td><span class="tag green">Intérêt légitime</span></td></tr>
+      </tbody>
+    </table>
+    <div class="alert-box">⚠️ MediPaie ne collecte <strong>aucune donnée de santé au sens strict</strong> (dossiers médicaux patients). Les données concernent exclusivement la vie professionnelle de l'utilisateur.</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">3</div><h2>Hébergement et stockage</h2></div>
+    <div class="provider-list">
+      <div class="provider-item">
+        <div class="provider-logo">📱</div>
+        <div><h4>Stockage local (AsyncStorage)</h4><p>Vos entrées de temps, bulletins et primes sont stockés <strong>uniquement sur votre appareil</strong>. Ces données ne quittent jamais votre téléphone sans action explicite de votre part.</p></div>
+      </div>
+      <div class="provider-item">
+        <div class="provider-logo">🗄️</div>
+        <div><h4>Supabase — Authentification</h4><p>Votre email et token de session sont hébergés sur <strong>Supabase</strong>, certifié SOC 2 Type II et RGPD, dans des datacenters situés dans l'<strong>Union Européenne</strong> (Irlande / Francfort). <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Politique Supabase →</a></p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">4</div><h2>Authentification via des tiers</h2></div>
+    <p>En complément de la connexion par email, MediPaie propose :</p>
+    <div class="provider-list">
+      <div class="provider-item">
+        <div class="provider-logo">🍎</div>
+        <div><h4>Apple Sign In</h4><p>Nous recevons uniquement un identifiant Apple anonymisé et, optionnellement, un email relayé par Apple. Aucun autre accès à votre compte Apple. <a href="https://www.apple.com/legal/privacy/fr-ww/" target="_blank" rel="noopener">Politique Apple →</a></p></div>
+      </div>
+      <div class="provider-item">
+        <div class="provider-logo">G</div>
+        <div><h4>Google Sign In</h4><p>Nous recevons uniquement votre adresse email et un identifiant Google. Aucun accès à Drive, contacts ou autres services. <a href="https://policies.google.com/privacy?hl=fr" target="_blank" rel="noopener">Politique Google →</a></p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">5</div><h2>Partage et cession des données</h2></div>
+    <p><strong>MediPaie ne vend, ne loue et ne cède jamais vos données personnelles à des tiers à des fins commerciales.</strong></p>
+    <p>Vos données ne sont partagées qu'avec les sous-traitants techniques indispensables (Supabase, Apple, Google — dans les strictes limites ci-dessus), liés par des contrats de traitement conformes au RGPD Art. 28.</p>
+    <p>En cas d'obligation légale (réquisition judiciaire ou administrative), les données requises pourront être transmises aux autorités compétentes.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">6</div><h2>Durée de conservation</h2></div>
+    <table class="data-table">
+      <thead><tr><th>Données</th><th>Durée de conservation</th></tr></thead>
+      <tbody>
+        <tr><td>Données de compte (email, profil)</td><td>Durée de vie du compte + 30 jours après suppression</td></tr>
+        <tr><td>Données locales (heures, bulletins, primes)</td><td>Jusqu'à désinstallation de l'application</td></tr>
+        <tr><td>Tokens de session (JWT)</td><td>1 h (accès) · 7 jours (rafraîchissement)</td></tr>
+        <tr><td>Logs techniques</td><td>30 jours maximum</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">7</div><h2>Vos droits — RGPD Chapitre III</h2></div>
+    <p>Conformément aux articles 15 à 22 du RGPD :</p>
+    <div class="rights-grid">
+      <div class="right-item"><div class="ri">📋</div><h4>Accès (Art. 15)</h4><p>Obtenir une copie de toutes vos données</p></div>
+      <div class="right-item"><div class="ri">✏️</div><h4>Rectification (Art. 16)</h4><p>Corriger des données inexactes ou incomplètes</p></div>
+      <div class="right-item"><div class="ri">🗑️</div><h4>Effacement (Art. 17)</h4><p>Droit à l'oubli — suppression sous 30 jours</p></div>
+      <div class="right-item"><div class="ri">⏸️</div><h4>Limitation (Art. 18)</h4><p>Suspendre le traitement de vos données</p></div>
+      <div class="right-item"><div class="ri">📦</div><h4>Portabilité (Art. 20)</h4><p>Recevoir vos données en format structuré</p></div>
+      <div class="right-item"><div class="ri">🚫</div><h4>Opposition (Art. 21)</h4><p>Vous opposer à certains traitements</p></div>
+    </div>
+    <p style="margin-top:20px">Pour exercer vos droits : <a href="mailto:contact.medipaie@gmail.com"><strong>contact.medipaie@gmail.com</strong></a> — Réponse sous <strong>30 jours</strong> (RGPD Art. 12-3). Réclamation possible auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener"><strong>CNIL</strong></a>.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">8</div><h2>Sécurité des données — RGPD Art. 32</h2></div>
+    <table class="data-table">
+      <thead><tr><th>Mesure</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Chiffrement en transit</td><td>HTTPS / TLS 1.2+ sur toutes les communications</td></tr>
+        <tr><td>Chiffrement au repos</td><td>AES-256 sur les serveurs Supabase</td></tr>
+        <tr><td>Mots de passe</td><td>Hashage bcrypt — jamais stockés en clair</td></tr>
+        <tr><td>Sessions</td><td>Tokens JWT à durée limitée avec invalidation serveur</td></tr>
+        <tr><td>Accès aux données</td><td>Row Level Security (RLS) Supabase</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px">En cas de violation susceptible d'engendrer un risque élevé, vous serez notifié dans les meilleurs délais conformément à l'article 34 du RGPD.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">9</div><h2>Mineurs</h2></div>
+    <p>MediPaie est exclusivement destinée aux professionnels de santé <strong>majeurs (18 ans et plus)</strong>. Aucune donnée de mineur n'est sciemment collectée. Si vous estimez qu'un mineur a créé un compte, contactez-nous immédiatement à <a href="mailto:contact.medipaie@gmail.com">contact.medipaie@gmail.com</a>.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">10</div><h2>Modifications de la politique</h2></div>
+    <p>En cas de modification substantielle affectant vos droits, vous serez informé par notification dans l'application ou par email au moins <strong>30 jours avant</strong> l'entrée en vigueur des changements. La date de mise à jour figure en haut de cette page.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="section">
+    <div class="section-header"><div class="section-num">11</div><h2>Contact</h2></div>
+    <p>En tant qu'auto-entrepreneur ne dépassant pas les seuils réglementaires, la désignation d'un DPO n'est pas obligatoire. Martin PLANCKEEL assume directement la responsabilité du traitement.</p>
+    <div class="provider-item" style="margin-top:14px">
+      <div class="provider-logo">✉️</div>
+      <div>
+        <h4>Martin PLANCKEEL — Responsable du traitement</h4>
+        <p>Email : <a href="mailto:contact.medipaie@gmail.com">contact.medipaie@gmail.com</a></p>
+        <p>Délai de réponse légal : 30 jours maximum (RGPD Art. 12-3)</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">🏥 MediPaie</div>
+    <p>© 2026 Martin PLANCKEEL — Auto-entrepreneur · France</p>
+    <p style="margin-top:6px"><a href="mailto:contact.medipaie@gmail.com">contact.medipaie@gmail.com</a> &nbsp;·&nbsp; Conforme RGPD (UE 2016/679)</p>
+  </div>
+</footer>
+
 </body>
 </html>
